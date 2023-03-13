@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Feather } from "@expo/vector-icons";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable, Alert } from "react-native";
 
 export const StaffCard = ({
   staffName,
@@ -8,7 +8,20 @@ export const StaffCard = ({
   staffNumber,
   department,
   salary,
+  id,
+  deleteStaff,
 }) => {
+  const deleteButtonAlert = () => {
+    Alert.alert("Confirm", "Are you sure you want to delete?", [
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel",
+      },
+      { text: "OK", onPress: () => deleteStaff(id) },
+    ]);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.detail}>
@@ -35,6 +48,16 @@ export const StaffCard = ({
         <Feather name="dollar-sign" size={24} color="black" />
         <Text>{salary}</Text>
       </View>
+
+      <View style={styles.buttons}>
+        <Pressable style={styles.button}>
+          <Text>Edit</Text>
+        </Pressable>
+
+        <Pressable style={styles.buttonn} onPress={deleteButtonAlert}>
+          <Text>Delete</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -54,5 +77,28 @@ const styles = StyleSheet.create({
   detail: {
     flexDirection: "row",
     padding: 5,
+  },
+  button: {
+    height: 44,
+    width: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "green",
+    borderRadius: 10,
+    margin: 10,
+  },
+  buttonn: {
+    height: 44,
+    width: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "red",
+    borderRadius: 10,
+    margin: 10,
+  },
+  buttons: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Alert, Button, TextInput, View, StyleSheet } from "react-native";
+import { LoginUser } from "../API/users";
 
-export const SignIn = () => {
+export const SignIn = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  onClick = () => {
-    Alert.alert(`Your credentials are ${username} ${password}`);
+  onClick = async () => {
+    const user = await LoginUser(username, password);
+    if (user) {
+      navigation.navigate("Main");
+    }
   };
   return (
     <View style={styles.container}>

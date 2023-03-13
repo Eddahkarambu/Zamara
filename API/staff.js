@@ -1,6 +1,8 @@
+import { ToastAndroid } from "react-native";
+
 export const StaffCreate = (data) => {
   return fetch(
-    "https://crudcrud.com/api/2efb96f081eb4ebb82773c45226f9154/zamara",
+    "https://crudcrud.com/api/06b7e9d0141c4da287704cc76dce9a7d/zamara",
     {
       method: "POST",
       headers: {
@@ -16,7 +18,7 @@ export const StaffCreate = (data) => {
 
 export const GetStaff = () => {
   return fetch(
-    "https://crudcrud.com/api/2efb96f081eb4ebb82773c45226f9154/zamara",
+    "https://crudcrud.com/api/06b7e9d0141c4da287704cc76dce9a7d/zamara",
     {
       method: "GET",
       headers: {
@@ -27,6 +29,20 @@ export const GetStaff = () => {
   )
     .then((response) => response.json())
     .then((responseData) => {
+      return responseData;
+    });
+};
+
+export const DeleteStaff = (id) => {
+  return fetch(
+    `https://crudcrud.com/api/06b7e9d0141c4da287704cc76dce9a7d/zamara/${id}`,
+    {
+      method: "DELETE",
+    }
+  )
+    .then((response) => response.json())
+    .then((responseData) => {
+      ToastAndroid.show("Staff deleted successfully!", ToastAndroid.SHORT);
       return responseData;
     });
 };

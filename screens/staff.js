@@ -11,11 +11,21 @@ export const Staff = () => {
     setOpen(true);
   };
 
+  const handleClick = () => {
+    setOpen(false);
+  };
+
   return (
     <View style={styles.container}>
       {open ? <CreateStaff /> : <ViewAllStaff />}
-
-      {!open && (
+      {open ? (
+        <FAB
+          icon={{ name: "cancel", color: "white" }}
+          color="red"
+          style={styles.button}
+          onPress={handleClick}
+        />
+      ) : (
         <FAB
           icon={{ name: "add", color: "white" }}
           color="green"
