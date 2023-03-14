@@ -8,9 +8,13 @@ export const StaffCard = ({
   staffNumber,
   department,
   salary,
-  id,
   deleteStaff,
+  staff,
+  edit,
 }) => {
+  const onEditClick = () => {
+    edit(staff);
+  };
   const deleteButtonAlert = () => {
     Alert.alert("Confirm", "Are you sure you want to delete?", [
       {
@@ -18,7 +22,7 @@ export const StaffCard = ({
         onPress: () => console.log("Cancel Pressed"),
         style: "cancel",
       },
-      { text: "OK", onPress: () => deleteStaff(id) },
+      { text: "OK", onPress: () => deleteStaff(staff) },
     ]);
   };
 
@@ -50,7 +54,7 @@ export const StaffCard = ({
       </View>
 
       <View style={styles.buttons}>
-        <Pressable style={styles.button}>
+        <Pressable style={styles.button} onPress={onEditClick}>
           <Text>Edit</Text>
         </Pressable>
 

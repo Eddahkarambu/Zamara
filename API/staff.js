@@ -46,3 +46,19 @@ export const DeleteStaff = (id) => {
       return responseData;
     });
 };
+
+export const UpdateStaff = (id, data) => {
+  return fetch(
+    `https://crudcrud.com/api/06b7e9d0141c4da287704cc76dce9a7d/zamara/${id}`,
+    {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...data,
+      }),
+    }
+  );
+};

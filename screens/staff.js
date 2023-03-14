@@ -6,18 +6,29 @@ import { FAB } from "@rneui/themed";
 
 export const Staff = () => {
   const [open, setOpen] = useState(false);
+  const [staffData, setStaffData] = useState(null);
 
   const onClick = () => {
     setOpen(true);
   };
 
   const handleClick = () => {
+    setStaffData(null);
     setOpen(false);
+  };
+
+  const onEditClicked = async (staff) => {
+    setOpen(true);
+    setStaffData(staff);
   };
 
   return (
     <View style={styles.container}>
-      {open ? <CreateStaff /> : <ViewAllStaff />}
+      {open ? (
+        <CreateStaff data={staffData} close={handleClick} />
+      ) : (
+        <ViewAllStaff onEdit={onEditClicked} />
+      )}
       {open ? (
         <FAB
           icon={{ name: "cancel", color: "white" }}
