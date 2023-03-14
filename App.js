@@ -9,8 +9,25 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Signin">
-        <Stack.Screen name="Signin" component={SignIn} />
-        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen
+          name="Signin"
+          component={SignIn}
+          
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="Main"
+          component={Main}
+          options={{
+            title: "ZAMARA APP",
+            headerStyle: {
+              backgroundColor: "#43ae37",
+            },
+            headerTintColor: "#fff",
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

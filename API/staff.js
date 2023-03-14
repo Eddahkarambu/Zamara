@@ -2,7 +2,7 @@ import { ToastAndroid } from "react-native";
 
 export const StaffCreate = (data) => {
   return fetch(
-    "https://crudcrud.com/api/06b7e9d0141c4da287704cc76dce9a7d/zamara",
+    "https://crudcrud.com/api/d1a9fff0bc8846cb87c331a8b7eeaecb/zamara",
     {
       method: "POST",
       headers: {
@@ -18,7 +18,7 @@ export const StaffCreate = (data) => {
 
 export const GetStaff = () => {
   return fetch(
-    "https://crudcrud.com/api/06b7e9d0141c4da287704cc76dce9a7d/zamara",
+    "https://crudcrud.com/api/d1a9fff0bc8846cb87c331a8b7eeaecb/zamara",
     {
       method: "GET",
       headers: {
@@ -35,7 +35,7 @@ export const GetStaff = () => {
 
 export const DeleteStaff = (id) => {
   return fetch(
-    `https://crudcrud.com/api/06b7e9d0141c4da287704cc76dce9a7d/zamara/${id}`,
+    `https://crudcrud.com/api/d1a9fff0bc8846cb87c331a8b7eeaecb/zamara/${id}`,
     {
       method: "DELETE",
     }
@@ -49,7 +49,7 @@ export const DeleteStaff = (id) => {
 
 export const UpdateStaff = (id, data) => {
   return fetch(
-    `https://crudcrud.com/api/06b7e9d0141c4da287704cc76dce9a7d/zamara/${id}`,
+    `https://crudcrud.com/api/d1a9fff0bc8846cb87c331a8b7eeaecb/zamara/${id}`,
     {
       method: "PUT",
       headers: {

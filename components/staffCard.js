@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Feather } from "@expo/vector-icons";
 import { View, Text, StyleSheet, Pressable, Alert } from "react-native";
 
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 5,
+    backgroundColor: "white",
   },
   detail: {
     flexDirection: "row",

@@ -9,18 +9,18 @@ export const ViewAllStaff = ({ onEdit }) => {
   const [staff, setStaff] = useState([]);
 
   useEffect(async () => {
-    const allStaff = await GetStaff();
-    console.log(allStaff);
-    setStaff(allStaff);
+    async function getStaff() {
+      const allStaff = await GetStaff();
+      setStaff(allStaff);
+    }
+    getStaff();
   }, []);
 
   const deleteSingleStaff = async (staff) => {
-    console.log(staff._id);
     await DeleteStaff(staff._id);
     SendDeleteEmail(staff.staffName, staff.staffEmail);
     const allStaff = await GetStaff();
-    console.log(allStaff);
-    setStaff(allStaff);
+    setStaff([...allStaff]);
   };
 
   return (

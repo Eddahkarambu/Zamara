@@ -15,8 +15,13 @@ export function Main() {
       drawerType="front"
       initialRouteName="Home"
       screenOptions={{
-        activeTintColor: "#e91e63",
-        itemStyle: { marginVertical: 10 },
+        drawerActiveBackgroundColor: "black",
+        drawerActiveTintColor: "white",
+        drawerInactiveTintColor: "#43ae37",
+        drawerStyle: {
+            backgroundColor: "#1f1f3d"
+        },
+        
       }}
     >
       {DrawerItems.map((drawer) => (
@@ -37,7 +42,7 @@ export function Main() {
               <Feather
                 name={drawer.iconName}
                 size={24}
-                color={focused ? "#e91e63" : "black"}
+                color={focused ? "white" : "#43ae37"}
               />
             ),
           }}

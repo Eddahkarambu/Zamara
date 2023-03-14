@@ -44,37 +44,44 @@ export const CreateStaff = ({ data, close }) => {
   return (
     <View style={styles.container}>
       <TextInput
+        placeholderTextColor="white"
         placeholder="Staff Number"
         style={styles.input}
         value={staffNumber || staffData?.staffNumber}
         onChangeText={(e) => setStaffNumber(e)}
       />
       <TextInput
+        placeholderTextColor="white"
         placeholder="Staff Name"
         style={styles.input}
         value={staffName || staffData?.staffName}
         onChangeText={(e) => setStaffName(e)}
       />
       <TextInput
+        placeholderTextColor="white"
         placeholder="Staff Email"
         style={styles.input}
         value={staffEmail || staffData?.staffEmail}
         onChangeText={(e) => setStaffEmail(e)}
       />
       <TextInput
+        placeholderTextColor="white"
         placeholder="Department"
         style={styles.input}
         value={department || staffData?.department}
         onChangeText={(e) => setDepartment(e)}
       />
       <TextInput
+        placeholderTextColor="white"
         placeholder="Salary"
         style={styles.input}
         value={salary || staffData?.salary}
         onChangeText={(e) => setSalary(e)}
       />
       <Pressable style={styles.button} onPress={onClick}>
-        <Text>{staffData ? "Edit Staff" : "Create Staff"} </Text>
+        <Text style={styles.btnText}>
+          {staffData ? "Edit Staff" : "Create Staff"}{" "}
+        </Text>
       </Pressable>
     </View>
   );
@@ -84,15 +91,17 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#ecf0f1",
+    backgroundColor: "#1f1f3d",
   },
   input: {
     width: 200,
     height: 44,
     padding: 10,
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "white",
     marginBottom: 10,
+    color: "white",
+    borderRadius: 10,
   },
   button: {
     height: 44,
@@ -101,5 +110,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "green",
     borderRadius: 10,
+  },
+  btnText: {
+    color: "white",
   },
 });

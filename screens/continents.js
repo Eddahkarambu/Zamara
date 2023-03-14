@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { XMLParser } from "fast-xml-parser";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 export const Continents = () => {
   const [continents, setContinents] = useState([]);
@@ -44,13 +44,36 @@ export const Continents = () => {
   }, []);
 
   return (
-    <View>
-      <Text>List of Continents</Text>
-      <View>
+    <View style={styles.container}>
+      <Text style={styles.heading}>List of Continents</Text>
+      <View style={styles.continent}>
         {continents.map((continent) => (
-          <Text key={continent["m:sCode"]}>{continent["m:sName"]}</Text>
+          <Text style={styles.cont} key={continent["m:sCode"]}>
+            {continent["m:sCode"]}: {continent["m:sName"]}
+          </Text>
         ))}
       </View>
     </View>
   );
 };
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "#1f1f3d",
+  },
+  cont: {
+    padding: 2,
+    marginLeft: 70,
+    fontWeight: 800,
+    color: "white",
+    fontSize: 18,
+  },
+  heading: {
+    color: "white",
+    padding: 2,
+    marginLeft: 50,
+    fontWeight: 800,
+    fontSize: 20,
+  },
+});
